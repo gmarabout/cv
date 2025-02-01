@@ -1,253 +1,133 @@
-%%%%%%%%%%%%%%%%%
-% This is an sample CV template created using altacv.cls
-% (v1.6, 21 May 2021) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
-%
-%% It may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.3
-%% of this license or (at your option) any later version.
-%% The latest version of this license is in
-%%    http://www.latex-project.org/lppl.txt
-%% and version 1.3 or later is part of all distributions of LaTeX
-%% version 2003/12/01 or later.
-%%%%%%%%%%%%%%%%
+\documentclass[10pt,a4paper]{moderncv}
 
-%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
-% \documentclass[10pt,a4paper,normalphoto]{altacv}
+% moderncv themes
+\moderncvstyle{classic} % Style options: 'casual', 'classic', 'banking', 'oldstyle', 'fancy'
+\moderncvcolor{blue}   % Color options: 'blue', 'orange', 'green', 'red', 'purple', 'grey', 'black'
 
-\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
-%% AltaCV uses the fontawesome5 and packages.
-%% See http://texdoc.net/pkg/fontawesome5 for full list of symbols.
+% character encoding
+\usepackage[utf8]{inputenc}  
 
-% Change the page layout if you need to
-\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
 
-% The paracol package lets you typeset columns of text in parallel
-\usepackage{paracol}
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
 
-% Change the font if you want to, depending on whether
-% you're using pdflatex or xelatex/lualatex
-\ifxetexorluatex
-% If using xelatex or lualatex:
-\setmainfont{Roboto Slab}
-\setsansfont{Lato}
-\renewcommand{\familydefault}{\sfdefault}
-\else
-% If using pdflatex:
-\usepackage[rm]{roboto}
-\usepackage[defaultsans]{lato}
-% \usepackage{sourcesanspro}
-\renewcommand{\familydefault}{\sfdefault}
-\fi
-
-% Change the colours if you want to
-\definecolor{SlateGrey}{HTML}{2E2E2E}
-\definecolor{LightGrey}{HTML}{666666}
-\definecolor{DarkPastelRed}{HTML}{450808}
-\definecolor{PastelRed}{HTML}{8F0D0D}
-\definecolor{GoldenEarth}{HTML}{E7D192}
-\colorlet{name}{black}
-\colorlet{tagline}{PastelRed}
-\colorlet{heading}{DarkPastelRed}
-\colorlet{headingrule}{GoldenEarth}
-\colorlet{subheading}{PastelRed}
-\colorlet{accent}{PastelRed}
-\colorlet{emphasis}{SlateGrey}
-\colorlet{body}{LightGrey}
-
-% Change some fonts, if necessary
-\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
-\renewcommand{\personalinfofont}{\footnotesize}
-\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
-\renewcommand{\cvsubsectionfont}{\large\bfseries}
-
-% Change the bullets for itemize and rating marker
-% for \cvskill if you want to
-\renewcommand{\itemmarker}{{\small\textbullet}}
-\renewcommand{\ratingmarker}{\faCircle}
-%% Use (and optionally edit if necessary) this .tex if you
-%% want to use an author-year reference style like APA(6)
-% \input{pubs-authoryear}
-
+% personal data
+\name{Grégoire}{Marabout-Demazure}
+\title{Curriculum Vitae}
+\address{10 rue George Sand}{34920 le Crès}
+\phone[mobile]{+33~6~60~65~64~61}
+\email{gmarabout@gmail.com}
+\homepage{www.liberscale.tech}
+\social[linkedin]{gmarabout}
+\social[github]{gmarabout}
 
 \begin{document}
-	\name{Grégoire Marabout-Demazure}
-	\tagline{CTO | Senior Software Engineer}
+\makecvtitle
 
-	\photoR{2.8cm}{greg.jpg}
-	
-	\personalinfo{%
+\section{Summary}
+Cloud \& AI Architect with 20+ years of experience designing and scaling high-performance distributed systems. Expert in AI-driven automation, large-scale data pipelines, and cybersecurity solutions, helping businesses turn complex technical challenges into scalable, cloud-native solutions. Proven ability to lead engineering teams, drive innovation, and build AI-powered platforms that optimize operations and enhance security.
 
-		\email{gmarabout@gmail.com}
-		\phone{+33 6 60 65 64 61}
-		\mailaddress{10, rue George Sand 34920 Le Crès}
-		\location{Montpellier Area, France}
-		\twitter{@gmarabout}
-		\linkedin{gmarabout}
-		\github{gmarabout}
-		%% You can add your own arbitrary detail with
-		%% \printinfo{symbol}{detail}[optional hyperlink prefix]
-		% \printinfo{\faPaw}{Hey ho!}[https://example.com/]
-		%% Or you can declare your own field with
-		%% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
-		% \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
-		% \gitlab{your_id}
-		%%
-		%% For services and platforms like Mastodon where there isn't a
-		%% straightforward relation between the user ID/nickname and the hyperlink,
-		%% you can use \printinfo directly e.g.
-		% \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
-		%% But if you absolutely want to create new dedicated info fields for
-		%% such platforms, then use \NewInfoField* with a star:
-		% \NewInfoField*{mastodon}{\faMastodon}
-		%% then you can use \mastodon, with TWO arguments where the 2nd argument is
-		%% the full hyperlink.
-		% \mastodon{@username@instance}{https://instance.url/@username}
-	}
-	
-	\makecvheader
-	%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
-	% \AtBeginEnvironment{itemize}{\small}
-	
-	%% Set the left/right column width ratio to 6:4.
-	\columnratio{0.6}
-	
-	% Start a 2-column paracol. Both the left and right columns will automatically
-	% break across pages if things get too long.
-	\begin{paracol}{2}
-		\cvsection{Experience}
-				\cvevent{Independant Software Engineer and Architect}{Liberscale}{Oct 2022 -- now}{Montpellier, France}
+\section{Education}
+\cventry{1996--1998}{B.S. in Computer Science and AI}{Université Pierre et Marie Curie}{Paris}{}{Artificial Intelligence, Distributed Computing, Mathematics for AI}
+\cventry{1994--1996}{Associate degree in Physics}{Université Pierre et Marie Curie}{Paris}{}{Energy, Quantum Physics, and Mechanics}
+
+
+
+
+\section{Experience}
+
+\cventry{2023--now}{Founder \& Cloud/AI Architect}{Liberscale}{Montpellier}{}{
 	\begin{itemize}
-		\item Cloud \& micro-services architecture
-		\item Cybersecurity, Data \& AI applications development
+		\item Designed and implemented a secure, cloud-native data pipeline for credential leak detection, improving threat intelligence and cybersecurity response.
+		\item Developed an AI-powered SaaS automation platform with Hexa, leveraging large language models to automate and optimize enterprise workflows.
+		\item Architected \href{https://taipy.io/}{Taipy}’s distributed execution mode, enabling scalable AI-driven data processing for industrial applications.
 	\end{itemize}
-	
-		
-		\cvtag{Python}
-		\cvtag{Open-source}
-		
-		\divider
-		
-		
-		\cvevent{Engineering Lead}{Datadog}{Sept 2020 -- Oct 2022}{Montpellier, France}
-		\begin{itemize}
-			\item Build Datadog  network devices monitoring platform
-			\item Build and Lead development team (5 persons)
-		\end{itemize}
-	
-		\cvtag{Leadership}
-		\cvtag{Golang} 
-		\cvtag{Kubernetes}
-		\cvtag{Open-source}
-		
-		\divider
-		
-		\cvevent{CTO \& Co-founder}{DecisionBrain}{Oct 2013 -- Sept 2021}{Montpellier, France}
-		\begin{itemize}
-			\item Drive DecisionBrain’s technology strategy
-			\item Design solutions and products integrating \textit{OR} technology (CPLEX)
-		\end{itemize}	
-		\cvtag{Leadership}
-		\cvtag{Scala} 
-		\cvtag{TypeScript}
-		\cvtag{Kubernetes}
-			
-		\divider
-		
-		\cvevent{Software Architect}{Qualtera}{Jan 2011 -- Sept 2013}{Montpellier, France}
-		\begin{itemize}
-			\item Build company real-time analytics Cloud platform 
-		 for the semi-conductor industry
-		\end{itemize}	
-		\cvtag{Java}
-		\cvtag{GWT} 
-		\cvtag{ElasticSearch}
-		\cvtag{Apache Camel}
-		
-		\divider
-			
-		\cvevent{Software Architect}{Self-Employed}{Jan 2008 -- Jan 2011}{Paris, France}
-		\begin{itemize}
-			\item Build a game data analysis platform for Mimesis-Republic
-			\item Open-source a data analysis tool for Hadoop (cascading.jruby)
-		\end{itemize}
-		\cvtag{Hadoop}
-		\cvtag{Ruby} 
-		\cvtag{Open-source}
-		
-			\divider
-		
-		\cvevent{Support Engineer, Software Developer,  Architect}{ILOG}{Jan 2000 -- Sept 2008}{Paris, France - Mountain View, USA}
-		\begin{itemize}
-			\item Build ILOG Business Rules visual editors and modeling tools
-			\item Build ILOG Ruleflow editor
-		\end{itemize}	
-		\cvtag{Java}
-		\cvtag{Eclipse}
-		
-		\medskip
+}
 
-	
-		%% Switch to the right column. This will now automatically move to the second
-		%% page if the content is too long.
-		\switchcolumn
-		
-		\cvsection{My Life Philosophy}
-		
-		\begin{quote}
-			``The future depends on what you do today.''
-		\end{quote}
-		
-		\cvsection{Most Proud of}
-		
-		\cvachievement{\faFlask}{Technology}{Built Datadog next generation monitoring tool for network equipments}
-		
-		\divider
-			
-		\cvachievement{\faChartLine}{Company's growth}{Extended DecisionBrain’s business by building its Cloud and “industry-specific solutions” strategies}
-		
-		\divider
+\cventry{2022--2023}{Engineering Lead (Cybersecurity \& Cloud)}{CybelAngel}{Paris}{}{
+	\begin{itemize}
+		\item Led a team of 5 engineers responsible for developing internal web applications used by cybersecurity analysts to investigate and analyze data leaks.
+		\item Strengthened security \& software quality through automated CI/CD, rigorous testing, and cloud-native best practices.
+		\item Refactored and optimized a legacy threat detection platform, improving performance, resilience, and security posture.
+	\end{itemize}
+}
 
-		
-		\cvachievement{\faPeopleCarry}{Team Builder}{Built teams of highly skilled engineers, with high diversity: 30\% females, 10 different nationalities, different profiles}
-		
-		\cvsection{Strengths}
-		
-		\cvtag{Hard-working}
-		\cvtag{Motivator}
-		\cvtag{Leadership}
-		
-		\divider\smallskip
-		
-		\cvtag{Golang}
-		\cvtag{Java}
-		\cvtag{Python}
-		\cvtag{Kubernetes}
-		
-		\cvsection{Languages}
-		
-		\cvskill{French}{5}
-		\divider
-		
-		\cvskill{English}{4}
-		\divider
-		
-		\cvskill{Russian}{1} %% Supports X.5 values.
-		
-		%% Yeah I didn't spend too much time making all the
-		%% spacing consistent... sorry. Use \smallskip, \medskip,
-		%% \bigskip, \vspace etc to make adjustments.
-		\medskip
-		
-		\cvsection{Education}
-		
-		\cvevent{B.S. in Computer Science}{Paris VI University}{Sept 1996 -- Aug 1998}{}
-		
-		\divider
-		
-		\cvevent{Associate degree in Physics}{Paris VI University}{Sept 1994 -- Aug 1996}{}
-		
-		
-	\end{paracol}
-	
-	
+\cventry{2020--2022}{Engineering Lead (Cloud \& Observability)}{Datadog}{Paris}{}{
+	\begin{itemize}
+		\item Designed and launched the Network Device Monitoring product, leveraging cloud-based observability for large-scale IT infrastructures.
+		\item Developed real-time analytics pipelines to process high-velocity telemetry data, ensuring reliable insights for enterprise customers.
+		\item Mentored a team of 5 engineers in scalable cloud-native development, DevOps practices, and distributed systems design.
+	\end{itemize}
+}
+
+\cventry{2013--2020}{CTO \& Co-founder (Cloud, AI \& Optimization)}{DecisionBrain}{Paris/Montpellier}{}{
+	\begin{itemize}
+		\item Led the company’s cloud transformation, implementing scalable SaaS architectures and AI-driven decision optimization.
+		\item Designed AI-powered optimization solutions, including:
+		\begin{itemize}
+			\item London’s bike-sharing fleet management (predictive analytics \& optimization).
+			\item Semiconductor production efficiency tools (AI-driven scheduling \& defect prevention).
+			\item Hong Kong port yard optimization (real-time decision support \& logistics AI).
+		\end{itemize}
+		\item Scaled and managed a diverse team of 20 engineers, fostering a culture of innovation and technical excellence.
+		\item Established a new office for DecisionBrain in Montpellier, expanding the company's presence and operations (15 persons).
+	\end{itemize}
+}
+
+\cventry{2011--2013}{Software Architect (AI \& Data Analytics)}{Qualtera}{Montpellier}{}{
+	\begin{itemize}
+		\item Developed a real-time AI-powered analytics platform for the semiconductor industry, detecting anomalies with real-time machine learning models, saving clients millions in defect prevention.
+	\end{itemize}
+}
+
+\cventry{2011--2013}{Software Architect \& Independent Consultant}{}{Paris}{}{
+	\begin{itemize}
+		\item Built a Big Data analytics platform for Mamba Nation, enabling real-time insights from large-scale user interactions.
+		\item Developed \texttt{cascading.jruby}, an open-source big data processing library (now maintained by Etsy).
+		\item Developed \textit{Wormee}, an online music streaming app (later integrated into Deezer).
+	\end{itemize}
+}
+
+\cventry{2002--2008}{Software Architect (Enterprise AI and Rules)}{ILOG}{Paris}{}{
+	\begin{itemize}
+		\item Designed and developed core components of ILOG JRules, a leading Business Rules Management System (BRMS) used by Fortune 500 companies.
+		\item Built the Visual Rule Editor and Business Rule Translator (BAL), enabling business users to define and modify decision rules without deep technical knowledge.
+		\item Developed the Business Rules Language Definition Framework (BRLDF) and the Business Vocabulary API, allowing enterprises to customize and extend rule-based decision-making.
+		\item Engineered the Visual Rule Flow Editor, an Eclipse-based modeling tool for defining and orchestrating complex business workflows.
+	\end{itemize}
+}
+
+\cventry{2000--2002}{Support Engineer}{ILOG}{Paris}{}{
+	\begin{itemize}
+		\item Provided second-level support and consulting for ILOG JRules, ILOG Views (C++), and ILOG JViews/JTGO (Java).
+		\item Assisted enterprise clients in implementing rule-based decision systems and complex visualization solutions.
+		\item Authored technical documentation, FAQs, and best practices to improve developer adoption and implementation efficiency.
+		\item Provided first-level support (phone and emails) for ILOG's visualization product suite (1 year).
+	\end{itemize}
+}
+
+
+\cventry{1998--2000}{Software Developer}{Micropole}{Paris}{}{
+	\begin{itemize}
+		\item Developed a reservation system for Radio France, enabling secure remote access for journalists nation-wide.
+	\end{itemize}
+}
+
+\section{Skills}
+\cvitem{Cloud/DevOps}{Kubernetes, Docker, AWS, GCP, CI/CD, Serverless}
+\cvitem{AI/ML}{Predictive Analytics, Real-time Anomaly Detection, Optimization Algorithms}
+\cvitem{Data Engineering}{Big Data, Distributed Computing, Stream Processing, ETL Pipelines}
+\cvitem{Cybersecurity}{Threat detection, Secure cloud architectures, Data privacy}
+\cvitem{Software Architecture}{Microservices, Event-Driven Systems, Scalable SaaS Development}
+\cvitem{Programming}{Python, Golang, Java, C++}
+
+
+\section{Languages}
+\cvitemwithcomment{French}{Native}{}
+\cvitemwithcomment{English}{Fluent}{}
+\cvitemwithcomment{Russian}{Basic Knowledge}{}
+
+\section{Interests}
+\cvitem{Hobbies}{Reading, Running, Photography}
+
 \end{document}
